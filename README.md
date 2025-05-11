@@ -10,6 +10,12 @@ npm i
 npm install
 ```
 
+Configure de Envirotments, create a .env file in the root path app, with variable:
+
+NEXT_PUBLIC_API_URL={{value}}
+
+Remplace {{value}} for the envirotment value
+
 Second, run the development server:
 
 ```bash
