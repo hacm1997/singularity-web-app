@@ -1,0 +1,5 @@
+mutation RegisterUser($input: CreateAppUserDto!) {
+  registerUser(input: $input) {
+    ...AppUserFields
+  }
+}

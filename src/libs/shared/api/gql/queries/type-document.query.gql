@@ -1,0 +1,6 @@
+query GetDocumentTypes {
+  TypeDocuments {
+    id
+    NameTypeDocument
+  }
+}

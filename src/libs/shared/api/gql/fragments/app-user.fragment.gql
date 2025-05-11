@@ -1,0 +1,16 @@
+fragment AppUserFields on AppUser {
+  id
+  Name
+  LastName
+  username
+  email
+  IsMilitar
+  isTemporal
+  TimeCreate
+  document {
+    ...DocumentField
+  }
+  contact {
+    ...ContactField
+  }
+}

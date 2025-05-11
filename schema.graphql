@@ -1,0 +1,105 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Country {
+  id: ID!
+  CountryCode: String!
+  CountryName: String!
+}
+
+type ContactInfo {
+  id: ID!
+  Address: String!
+  City: String!
+  Phone: String!
+  CelPhone: String!
+  EmergencyName: String!
+  EmergencyPhone: String!
+  UserID: Float!
+  CountryID: Float!
+  country: Country!
+}
+
+type TypeDocument {
+  id: ID!
+  NameTypeDocument: String!
+}
+
+type UserDocument {
+  Document: String!
+  typeDocument: TypeDocument!
+  PlaceExpedition: String!
+  DateExpedition: String!
+}
+
+type AppUser {
+  id: ID!
+  Name: String!
+  LastName: String!
+  username: String!
+  email: String
+  emailVerified: Boolean!
+  IsMilitar: Boolean!
+  isTemporal: Boolean!
+  TimeCreate: DateTime!
+  document: UserDocument!
+  contact: ContactInfo
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  healthCheck: String!
+  TypeDocuments: [TypeDocument!]!
+  countries: [Country!]!
+}
+
+type Mutation {
+  registerUser(input: CreateAppUserDto!): AppUser!
+  createContactInfo(input: CreateContactInfoDto!): ContactInfo!
+  createUserDocument(input: CreateUserDocumentDto!): UserDocument!
+  createTypeDocument(input: CreateTypeDocumentDto!): TypeDocument!
+  createCountry(input: CreateCountryDto!): Country!
+}
+
+input CreateAppUserDto {
+  username: String!
+  password: String!
+  Name: String!
+  LastName: String!
+  IsMilitar: Boolean! = false
+  isTemporal: Boolean! = false
+  email: String
+  document: CreateUserDocumentDto!
+  contact: CreateContactInfoDto!
+}
+
+input CreateUserDocumentDto {
+  Document: String!
+  TypeDocumentID: Int!
+  PlaceExpedition: String!
+  DateExpedition: String!
+}
+
+input CreateContactInfoDto {
+  Address: String!
+  City: String!
+  Phone: String!
+  CelPhone: String!
+  EmergencyName: String!
+  EmergencyPhone: String!
+  CountryID: Int!
+}
+
+input CreateTypeDocumentDto {
+  NameTypeDocument: String!
+}
+
+input CreateCountryDto {
+  CountryCode: String!
+  CountryName: String!
+}

@@ -1,0 +1,8 @@
+fragment DocumentField on UserDocument {
+  Document
+  PlaceExpedition
+  DateExpedition
+  typeDocument {
+    NameTypeDocument
+  }
+}

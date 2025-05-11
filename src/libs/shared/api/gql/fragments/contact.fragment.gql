@@ -1,0 +1,12 @@
+fragment ContactField on ContactInfo {
+  Address
+  City
+  Phone
+  CelPhone
+  EmergencyName
+  EmergencyPhone
+  country {
+    CountryCode
+    CountryName
+  }
+}
